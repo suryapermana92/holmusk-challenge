@@ -60,6 +60,8 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   Widget build(BuildContext context) {
+    // TODO: Chat is not working yet, follow https://www.youtube.com/watch?v=WwhyaqNtNQY or https://www.youtube.com/redirect?v=WwhyaqNtNQY&redir_token=WdQS_aiy4k8iS5b9g-YCuFlFA9B8MTU3ODY4MTIxMkAxNTc4NTk0ODEy&event=video_description&q=https%3A%2F%2Fgithub.com%2Ftensor-programming%2Fdart_flutter_chat_app
+    // TODO: also can try using https://pub.dev/packages/dash_chat for chat UI
     return Scaffold(
         appBar: CustomAppBar(widget.friendName),
         body: Container(
