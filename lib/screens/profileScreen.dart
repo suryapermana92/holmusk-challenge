@@ -59,11 +59,22 @@ class _MyProfileState extends State<MyProfile> {
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
                   ),
                   Text(_myProfile["age"].toString() + " years"),
-                  MaterialButton(
-                    color: Colors.blueAccent,
-                    onPressed: getMyProfileFromApi,
-                    child: Text("Refresh Profile"),
-                  )
+                  RaisedButton(
+                    child: Text('Refresh Profile'),
+                    onPressed: () {
+                      getMyProfileFromApi();
+                    },
+                    shape: RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(18.0),
+                        side: BorderSide()),
+                  ),
+                  RaisedButton(
+                    child: Text('Edit Profile'),
+                    onPressed: () {},
+                    shape: RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(18.0),
+                        side: BorderSide()),
+                  ),
                 ],
               ));
   }
