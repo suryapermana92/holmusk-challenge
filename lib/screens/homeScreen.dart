@@ -79,11 +79,11 @@ class _HomeScreenState extends State<HomeScreen> {
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
+              icon: Icon(Icons.group),
               title: Text('Friend List'),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.business),
+              icon: Icon(Icons.account_circle),
               title: Text('My Profile'),
             ),
           ],
