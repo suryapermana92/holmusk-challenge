@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:back_button_interceptor/back_button_interceptor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:friend_chat/common/app_bar.dart';
 import 'package:friend_chat/utils/route_generator.dart';
 import 'package:friend_chat/style/theme.dart' as Theme;
 import 'package:http/http.dart' as http;
@@ -61,39 +62,49 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle.dark,
-      child: SafeArea(
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 20),
-          child: Center(
-            child: Column(
-              children: <Widget>[
-                // TODO: Create proper login & signup module
-                TextField(
-                  decoration: InputDecoration(
-                    labelText: "Email Address",
+        body: WillPopScope(
+            onWillPop: () async {
+              return true;
+            },
+            child: AnnotatedRegion<SystemUiOverlayStyle>(
+              value: SystemUiOverlayStyle.dark,
+              child: SafeArea(
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        "Welcome to Holmusk",
+                        style: TextStyle(
+                            fontSize: 24, fontWeight: FontWeight.w600),
+                      ),
+                      // TODO: Create proper login & signup module
+                      TextField(
+                        decoration: InputDecoration(
+                          labelText: "Email Address",
+                        ),
+                      ),
+                      TextField(
+                        decoration: InputDecoration(
+                          labelText: "Password",
+                        ),
+                      ),
+                      RaisedButton(
+                        child: Text('Log in'),
+                        onPressed: () {
+                          Navigator.of(context).pushNamed(homeRoute);
+                          _persistSession();
+                        },
+                        shape: RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(18.0),
+                            side: BorderSide()),
+                      ),
+                    ],
                   ),
-                ),
-                TextField(
-                  decoration: InputDecoration(
-                    labelText: "Password",
-                  ),
-                ),
-                MaterialButton(
-                  color: Colors.blue,
-                  child: Text('Log in'),
-                  onPressed: () {
-                    Navigator.of(context).pushNamed(homeRoute);
-                    _persistSession();
-                  },
-                ),
-              ],
-            ),
-          ),
 //        color: Theme.Colors.backgroundBlue,
-        ),
-      ),
-    ));
+                ),
+              ),
+            )));
   }
 }
