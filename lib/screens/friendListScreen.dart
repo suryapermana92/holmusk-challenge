@@ -10,16 +10,11 @@ class FriendList extends StatefulWidget {
 }
 
 class _FriendListState extends State<FriendList> {
-  List<String> _friendJsonData = [
-    '{"id": "001", "name":"Surya Permana", "avatarUrl" :"https://i.pravatar.cc/150?img=15", "lastMessage":"Hello there!"}',
-    '{"id": "002", "name":"Indra Santosa", "avatarUrl" :"https://i.pravatar.cc/150?img=46", "lastMessage":"Can you reply soon?"}'
-  ];
   bool _isloadingInitialData;
   List<Friend> _friendList = [];
   @override
   void initState() {
     super.initState();
-//    getFriendListFromString();
     _getFriendListFromApi();
   }
 
